@@ -22,4 +22,8 @@ const fetchGet = (slug) => {
         .then(res => res.json());
 }
 
-export { API_URL, HEADERS, fetchPost, fetchGet}
+
+
+
+
+export default { API_URL, HEADERS, fetchPost, fetchGet, fetchUserData }

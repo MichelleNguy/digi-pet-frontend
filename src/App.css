@@ -20,3 +20,32 @@
 .App-link {
   color: #09d3ac;
 }
+
+#nav-container {
+  height: 10vh;
+  overflow: hidden;
+  background-color: lightslategray;
+}
+
+.nav-link, .login-nav-link {
+  float: left;
+  text-align: center;
+  height: 40px;
+  font-size: 32px;
+  color: white;
+  padding: 17px 19px;
+  text-decoration: none;
+}
+
+.login-nav-link {
+  float: right;
+}
+
+.nav-link.active, .login-nav-link.active {
+  background-color: rgb(85, 9, 9)
+}
+
+.nav-link:hover, .login-nav-link:hover {
+  background-color: rgb(85, 9, 9);
+  
+}

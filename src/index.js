@@ -4,17 +4,17 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
+import thunk from 'redux-thunk'
 import { Provider } from 'react-redux'
 import reducer from './reducer'
+
 
 const defaultState = {
     pets: [],
     items: []
 }
-const store = createStore(reducer, defaultState)
-
-
+const store = createStore(reducer, defaultState, applyMiddleware(thunk))
 
 ReactDOM.render(
     <Router>

@@ -4,13 +4,15 @@ const reducer = (state, action) => {
             return {
                 ...state,
                 token: action.token,
-                id: action.id
+                userId: action.userId
             }
-        case "SET_USER_DATA":
+        case "SET_USER_DATA": 
             return {
                 ...state,
-                data: action.data
+                userData: action.userData
             }
+        case "LOGOUT":
+            return {}
         default:
             return state
     }
