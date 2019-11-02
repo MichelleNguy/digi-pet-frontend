@@ -70,19 +70,22 @@
   background-color: rgb(117, 186, 230);
 }
 
-#pet-container{
+#pet-container, #user-item-container{
   float: left;
   height: 100%;
-  width: 50%;
+  width: 49%;
   overflow: auto;
+  border: 1px solid black;
 }
 
-.pet-img {
+
+
+.pet-img, .item-img {
   height: 100px;
   width: 100px;
 }
 
-.pet-div{
+.pet-div, .item-div{
   /* width: 200px; */
   margin: 5px;
   padding: 10px;

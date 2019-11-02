@@ -15,6 +15,7 @@ import Goodbye from '../components/Goodbye'
 
 import CreatePet from '../components/CreatePet'
 
+
 class MainContainer extends Component {
 
     componentDidMount() {
@@ -47,10 +48,25 @@ class MainContainer extends Component {
 
                     <Route path="/shops" exact component={ShopContainer} />
                     <Route path="/goodbye" exact component={Goodbye} />
+
+
+                    <Route path="/test" exact render={this.test} />
                 </Switch>
             </div>
         )
     }
+
+    // testing something..
+    test = () => {
+        return (
+        <React.Fragment>
+            <PetContainer />
+            <UserItemContainer />
+        </React.Fragment>
+        )
+    }
+
+    //
 
 }
 
