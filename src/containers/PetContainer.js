@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
+import uuid from 'uuid'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { Jello } from 'react-motions';
+
+import Pet from '../components/Pet'
 
 class PetContainer extends Component {
 
@@ -9,11 +12,7 @@ class PetContainer extends Component {
         return (
             <React.Fragment>
                 {this.props.userData.pets.map( pet => {
-                    return (
-                    <div className="pet-div" key={pet.id}>
-                        <h2>{pet.name}</h2>
-                        <Jello infinite><img className="pet-img" src={pet.img_url}></img></Jello>
-                    </div>)
+                    return <Pet key={uuid.v4()} pet={pet}/>
                 })}
             </React.Fragment>
         )

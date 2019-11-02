@@ -30,6 +30,7 @@
 #main-container{
   height: 90vh;
   border: 2px solid purple;
+  overflow: hidden;
 }
 
 #nav-container {
@@ -65,6 +66,13 @@
   padding: 10px;
   text-align: left;
   border: 1px solid black;
+}
+
+#pet-container{
+  float: left;
+  height: 100%;
+  width: 50%;
+  overflow: auto;
 }
 
 .pet-img {
