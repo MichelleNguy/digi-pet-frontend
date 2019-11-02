@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 
-export default class UserItem extends Component {
+export default class Goodbye extends Component {
     render() {
         return (
             <div>
-                user itm
+                Goodbye! See you next time!
             </div>
         )
     }

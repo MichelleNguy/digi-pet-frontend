@@ -9,14 +9,10 @@ class NavContainer extends Component {
         console.log("tokes", this.props.token)
         return (
             <div id="nav-container">
-                <NavLink className="nav-link" to="/" exact>HOME</NavLink>
+                <NavLink className="nav-link" to="/" exact>DiGi - PETS</NavLink>
                 { this.props.token ? this.loggedInLinks() : this.loggedOutLinks()}
             </div>
         )
-    }
-
-    componentDidMount() {
-        console.log("token", this.props.token)
     }
 
     loggedOutLinks = () => {
@@ -29,7 +25,7 @@ class NavContainer extends Component {
                 <NavLink className="nav-link" to="/inventory" exact>INVENTORY</NavLink>
                 <NavLink className="nav-link" to="/pets" exact>PETS</NavLink>
                 <NavLink className="nav-link" to="/shops" exact>SHOPS</NavLink>
-                <NavLink onClick={this.logout} className="login-nav-link" to="/" exact>LOGOUT</NavLink>
+                <NavLink onClick={this.logout} className="login-nav-link" to="/goodbye" exact>LOGOUT</NavLink>
             </React.Fragment>
         )
     }

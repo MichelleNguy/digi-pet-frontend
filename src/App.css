@@ -1,5 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Nova+Mono&display=swap');
+
 .App {
   text-align: center;
+}
+
+* {
+  font-family: 'Nova Mono', monospace;
 }
 
 .App-logo {
@@ -21,10 +27,15 @@
   color: #09d3ac;
 }
 
+#main-container{
+  height: 90vh;
+  border: 2px solid purple;
+}
+
 #nav-container {
   height: 10vh;
   overflow: hidden;
-  background-color: lightslategray;
+  background-color: lightskyblue;
 }
 
 .nav-link, .login-nav-link {
@@ -42,10 +53,28 @@
 }
 
 .nav-link.active, .login-nav-link.active {
-  background-color: rgb(85, 9, 9)
+  background-color: lightcoral;
 }
 
 .nav-link:hover, .login-nav-link:hover {
-  background-color: rgb(85, 9, 9);
+  background-color: lightcoral;
   
+}
+
+#user-container {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid black;
+}
+
+.pet-img {
+  height: 100px;
+  width: 100px;
+}
+
+.pet-div{
+  /* width: 200px; */
+  margin: 5px;
+  padding: 10px;
+  border: 5px solid green;
 }

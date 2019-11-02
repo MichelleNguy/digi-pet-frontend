@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { setToken, setUserData } from '../actionCreators'
+import { fetchUserData } from '../adapter'
 
 const defaultState = {
     username: "",
@@ -16,89 +17,69 @@ class Login extends Component {
     }
 
     handleSubmit = (e) => {
-        //extremely non-DRY and needs refactoring badly
+        // Not the prettiest code, but it will do for now
+        // Will refactor
         e.preventDefault()
-        let fetchData = {
-            user: {
-                username: this.state.username,
-                password: this.state.password
-            }
-        }
-
+        
         let loginData = {
             username: this.state.username,
             password: this.state.password
         }
-
-        if (this.state.login) {
-            fetch('http://localhost:3000/login', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(loginData)
-            })
-                .then(res => res.json())
-                .then(data => {
-                    console.log("login data", data)
-                    if (data.errors) {
-                        this.setState({
-                            ...this.state,
-                            errors: data.errors
-                        })
-                        return 
-                    }
-                    localStorage.token = data.token
-                    localStorage.userId = data.user_id
-                    this.props.setToken(data.token, data.user_id)
-                    this.props.history.push("/pets")
-                    this.stupidFunction()
-                })
-        } else {
-            fetch('http://localhost:3000/users', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: JSON.stringify(fetchData)
-            })
-                .then(res => res.json())
-                .then(data => {
-                    console.log("create data", data)
-                    if (data.errors) {
-                        this.setState({
-                            ...this.state,
-                            errors: data.errors
-                        })
-                        return
-                    }
-                    localStorage.token = data.token
-                    localStorage.userId = data.user_id
-                    this.props.setToken(data.token, data.user_id)
-                    this.props.history.push("/pets")
-                    this.stupidFunction()
-                })
+        
+        let createData = {
+            user: {
+                ...loginData
+            }
         }
-    }
-
-    //
-    stupidFunction = () => {
-        fetch(`http://localhost:3000//users/${parseInt(localStorage.userId)}`, {
+        let fetchData
+        this.state.login ? fetchData = [loginData, "login"] : fetchData = [createData, "users"]
+        
+        fetch(`http://localhost:3000/${fetchData[1]}`, {
+            method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                Authorization: localStorage.token
-            }
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify(fetchData[0])
         })
             .then(res => res.json())
             .then(data => {
-                console.log("token", localStorage.token)
-                console.log("id", localStorage.userId)
+                console.log("login data", data)
+                if (data.errors) {
+                    this.setState({
+                        ...this.state,
+                        errors: data.errors
+                    })
+                    return
+                }
+                localStorage.token = data.token
+                localStorage.userId = data.user_id
+                this.props.setToken(data.token, data.user_id)
+                this.stupidFunction()
+                this.props.history.push("/pets")
+            })
+    }
+
+
+    stupidFunction = () => {
+        // fetch(`http://localhost:3000//users/${parseInt(localStorage.userId)}`, {
+        //     headers: {
+        //         'Content-Type': 'application/json',
+        //         Authorization: localStorage.token
+        //     }
+        // })
+        //     .then(res => res.json())
+        //     .then(data => {
+        //         this.props.setToken(localStorage.token, localStorage.userId)
+        //         this.props.setUserData(data)
+        //     })
+        fetchUserData()
+            .then(data => {
                 this.props.setToken(localStorage.token, localStorage.userId)
                 this.props.setUserData(data)
             })
     }
-    //
+
 
     handleChange = (e) => {
         this.setState({
