@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { withRouter, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux'
-import { setToken, setUserData } from '../actionCreators'
+import { setToken, setUserData, setShops } from '../actionCreators'
 import { fetchUserData } from '../adapter'
 
 
@@ -16,6 +16,8 @@ import Goodbye from '../components/Goodbye'
 import CreatePet from '../components/CreatePet'
 
 import CareContainer from './CareContainer'
+import Shop from '../components/Shop'
+import uuid from 'uuid'
 
 
 class MainContainer extends Component {
@@ -29,6 +31,11 @@ class MainContainer extends Component {
                     this.props.setUserData(data)
                 })
         }
+        fetch(`http://localhost:3000/shops`)
+            .then(res => res.json())
+            .then(shopArray => {
+                this.props.setShops(shopArray)
+            })
     }
 
     
@@ -50,11 +57,30 @@ class MainContainer extends Component {
                     <Route path="/shops" exact component={ShopContainer} />
                     <Route path="/goodbye" exact component={Goodbye} />
 
-
+                    <Route path="/shops/:shopsId" exact render={this.shop} />
                     <Route path="/kennel" exact render={this.kennel} />
                 </Switch>
             </div>
         )
+    }
+
+    shop = (renderProps) => {
+        console.log("shopId", renderProps)
+        let id = renderProps.match.params.shopsId
+        if (localStorage.token) {
+            let foundShop = this.props.shops.find( shop => {
+                return shop.id == id
+            })
+            console.log("found", foundShop)
+            return <Shop key={uuid.v4()} shop={foundShop} />
+            //return <Goodbye />
+        } else {
+            renderProps.history.push("/login")
+            return <Login />
+        }
+
+        
+        //return <Shop key={uuid.v4()} shop={this.props.shops.} />
     }
 
     // testing something..
@@ -75,7 +101,8 @@ class MainContainer extends Component {
 const mapStateToProps = (state) => {
     return {
         token: state.token,
-        userData: state.userData
+        userData: state.userData,
+        shops: state.shops
     }
 }
 
@@ -86,6 +113,9 @@ const mapDispatchToProps = (dispatch) => {
         },
         setUserData: (userData) => {
             dispatch(setUserData(userData))
+        },
+        setShops: (shops) => {
+            dispatch(setShops(shops))
         }
     }
 }

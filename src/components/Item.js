@@ -17,12 +17,27 @@ class Item extends Component {
 
     clickHandler = () => {
         // see if a pet is in the container
+        if (this.props.showPrice) { return }
         let itemExists = this.props.careThings.find(thing => { return thing.price })
         if (itemExists) {
             console.log("you're already in here")
             return
         }
         this.props.addToCare(this.props.item)
+    }
+
+    shopItemRender = () => {
+        return (
+            <React.Fragment>
+                <p>{`$${this.props.item.price}`}</p>
+                <button className="item-buy-button" onClick={this.buyItem}>BUY</button>
+            </React.Fragment>
+        )
+    }
+
+    buyItem = () => {
+        console.log("item-id", this.props.item.id)
+        console.log('user-id', this.props.userData.id)
     }
 
     render() {
@@ -32,7 +47,7 @@ class Item extends Component {
                 <h1>{name}</h1>
                 <img className="item-img" src={img_url} alt="an image of a cute monster" />
                 <p>{ this.renderEffectDisplay(effect)}</p>
-                <p>{this.props.showPrice ? `$${price}` : ""}</p>
+                <p>{this.props.showPrice ? this.shopItemRender() : ""}</p>
             </div>
         )
     }
@@ -41,6 +56,7 @@ class Item extends Component {
 const mapStateToProps = (state) => {
     return {
         careThings: state.care,
+        userData: state.userData
     }
 }
 

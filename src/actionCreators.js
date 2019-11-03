@@ -6,6 +6,12 @@ const setToken = (token, userId) => {
     }
 }
 
+const logout = () => {
+    return {
+        type: "LOGOUT"
+    }
+}
+
 const setUserData = (userData) => {
     return {
         type: "SET_USER_DATA",
@@ -26,10 +32,12 @@ const clearCare = () => {
     }
 }
 
-const logout = () => {
+const setShops = (shopArray) => {
     return {
-        type: "LOGOUT"
+        type: "SET_SHOPS",
+        shops: shopArray
     }
 }
 
-export { setToken, setUserData, logout, addToCare, clearCare }
+
+export { setToken, setUserData, logout, addToCare, clearCare, setShops }

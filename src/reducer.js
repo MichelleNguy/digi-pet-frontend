@@ -13,6 +13,12 @@ const reducer = (state, action) => {
             }
         case "LOGOUT":
             return {}
+        case "SET_SHOPS": {
+            return {
+                ...state,
+                shops: action.shops
+            }
+        }
         case "ADD_TO_CARE":
             return {
                 ...state,

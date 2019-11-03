@@ -30,7 +30,7 @@
 #main-container{
   height: 90vh;
   /* border: 2px solid purple; */
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 #nav-container {
