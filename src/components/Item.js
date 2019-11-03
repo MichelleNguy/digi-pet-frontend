@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { addToCare } from '../actionCreators'
+import { addToCare, setUserData } from '../actionCreators'
+import { fetchUserData } from '../adapter'
 
 class Item extends Component {
 
@@ -38,6 +39,30 @@ class Item extends Component {
     buyItem = () => {
         console.log("item-id", this.props.item.id)
         console.log('user-id', this.props.userData.id)
+        fetch(`http://localhost:3000/user_items`, {
+        method: 'POST',
+            headers: {
+            'Content-Type': 'application/json',
+                'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+                user_id: this.props.userData.id,
+                item_id: this.props.item.id,
+                // price: this.props.item.price
+            })
+        })
+            .then(res => res.json())
+            .then(obj => {
+                this.updateUser()
+                obj.poor ? alert("you cannot afford that") : alert("You just bought an item")
+            })
+    }
+
+    updateUser = () => {
+        fetchUserData()
+            .then(data => {
+                this.props.setUserData(data)
+            })
     }
 
     render() {
@@ -64,7 +89,11 @@ const mapDispatchToProps = (dispatch) => {
     return {
         addToCare: (thing) => {
             dispatch(addToCare(thing))
+        }, 
+        setUserData: (userData) => {
+            dispatch(setUserData(userData))
         },
+
     }
 }
 

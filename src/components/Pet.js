@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { addToCare } from '../actionCreators'
+import { Jello } from 'react-motions'
 
 class Pet extends Component {
 
@@ -14,12 +15,21 @@ class Pet extends Component {
         this.props.addToCare(this.props.pet)
     }
 
+    renderImage = (img_url) => {
+        if (this.props.animate) {
+            return <Jello infinite><img className="pet-img" src={img_url} alt="an image of a cute monster" /></Jello>
+        } else {
+            return <img className="pet-img" src={img_url} alt="an image of a cute monster" />
+        }
+    }
+
     render() {
         let { name, img_url, hygiene, hunger, attention} = this.props.pet
         return (
             <div onClick={this.clickHandler} className="pet-div">
                 <h1>{name}</h1>
-                <img className="pet-img" src={img_url} alt="an image of a cute monster"/>
+                { this.renderImage(img_url)}
+                {/* <img className="pet-img" src={img_url} alt="an image of a cute monster"/> */}
                 <p> HYGIENE: {hygiene}/100 </p>
                 <p> HUNGER: {hunger}/100 </p>
                 <p> ATTENTION:  {attention}/100 </p>

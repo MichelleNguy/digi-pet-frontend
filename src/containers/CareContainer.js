@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { clearCare, setUserData } from '../actionCreators'
 import { fetchUserData } from '../adapter'
+import { Jello } from 'react-motions';
 
 import Pet from '../components/Pet'
 import Item from '../components/Item'
@@ -14,7 +15,7 @@ class CareContainer extends Component {
         return (
             <React.Fragment>
                 {this.props.careThings.map(thing => {
-                    return thing.hygiene ? <Pet key={uuid.v4()} pet={thing} /> : <Item key={uuid.v4()} item={thing}/>
+                    return thing.hygiene ? <Pet key={uuid.v4()} pet={thing} animate={true} /> : <Item key={uuid.v4()} item={thing}/>
                 })}
                 <button className="care-btn" onClick={this.handleCare}>PRESS HERE TO CARE FOR PET!</button>
             </React.Fragment>

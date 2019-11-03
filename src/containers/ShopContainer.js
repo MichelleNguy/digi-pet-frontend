@@ -7,23 +7,11 @@ import { NavLink } from 'react-router-dom'
 
 class ShopContainer extends Component {
 
-    // componentDidMount(){
-    //     fetch(`http://localhost:3000/shops`)
-    //         .then(res => res.json())
-    //         .then(shopArray => {
-    //             console.log(shopArray)
-    //             this.props.setShops(shopArray)
-    //         })
-    // }    
-
     renderShops = () => {
         return (
             <React.Fragment>
                 { this.props.shops.map( shop => {
-                    // return <Shop key={uuid.v4()} shop={shop}/> 
-                    //return <p>{shop.name}</p>
-                    return <NavLink to={`/shops/${shop.id}`} exact><p>{shop.name}</p></NavLink>
-                    
+                    return <NavLink to={`/shops/${shop.id}`} exact><p>{shop.name}</p></NavLink>                
                 })}
             </React.Fragment>
         )
