@@ -1,13 +1,23 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { addToCare } from '../actionCreators'
 
-export default class Pet extends Component {
+class Pet extends Component {
 
-
+    clickHandler = () => {
+        // see if a pet is in the container
+        let petExists = this.props.careThings.find( thing => { return thing.hygiene })
+        if (petExists ) {
+            console.log("you're already in here")
+            return
+        }
+        this.props.addToCare(this.props.pet)
+    }
 
     render() {
         let { name, img_url, hygiene, hunger, attention} = this.props.pet
         return (
-            <div className="pet-div">
+            <div onClick={this.clickHandler} className="pet-div">
                 <h1>{name}</h1>
                 <img className="pet-img" src={img_url} alt="an image of a cute monster"/>
                 <p> HYGIENE: {hygiene}/100 </p>
@@ -17,3 +27,19 @@ export default class Pet extends Component {
         )
     }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        careThings: state.care,
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        addToCare: (thing) => {
+            dispatch(addToCare(thing))
+        },
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Pet)

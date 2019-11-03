@@ -13,6 +13,17 @@ const reducer = (state, action) => {
             }
         case "LOGOUT":
             return {}
+        case "ADD_TO_CARE":
+            return {
+                ...state,
+                care: [...state.care, action.objectToAdd]
+            }
+        case "CLEAR_CARE": {
+            return {
+                ...state,
+                care: []
+            }
+        }
         default:
             return state
     }

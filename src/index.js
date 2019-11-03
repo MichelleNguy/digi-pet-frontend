@@ -12,7 +12,8 @@ import reducer from './reducer'
 
 const defaultState = {
     pets: [],
-    items: []
+    items: [],
+    care: []
 }
 const store = createStore(reducer, defaultState, applyMiddleware(thunk))
 

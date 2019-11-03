@@ -15,6 +15,8 @@ import Goodbye from '../components/Goodbye'
 
 import CreatePet from '../components/CreatePet'
 
+import CareContainer from './CareContainer'
+
 
 class MainContainer extends Component {
 
@@ -33,7 +35,6 @@ class MainContainer extends Component {
 
 
     render() {
-        console.log("userdata", this.props.userData)
         return (
             <div id="main-container">
                 { this.props.token ? <UserContainer /> : ""}
@@ -41,8 +42,8 @@ class MainContainer extends Component {
                 <Switch>
                     <Route path="/" exact component={Home} />
                     <Route path="/login" exact component={Login}/>
-                    <Route path="/inventory" exact component={UserItemContainer} />
-                    <Route path="/pets" exact component={PetContainer} />
+                    {/* <Route path="/inventory" exact component={UserItemContainer} />
+                    <Route path="/pets" exact component={PetContainer} /> */}
 
                     <Route path="/create" exact component={CreatePet} />
 
@@ -50,16 +51,17 @@ class MainContainer extends Component {
                     <Route path="/goodbye" exact component={Goodbye} />
 
 
-                    <Route path="/test" exact render={this.test} />
+                    <Route path="/kennel" exact render={this.kennel} />
                 </Switch>
             </div>
         )
     }
 
     // testing something..
-    test = () => {
+    kennel = () => {
         return (
         <React.Fragment>
+            <CareContainer />
             <PetContainer />
             <UserItemContainer />
         </React.Fragment>

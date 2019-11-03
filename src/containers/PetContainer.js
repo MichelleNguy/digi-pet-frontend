@@ -24,8 +24,7 @@ class PetContainer extends Component {
     render() {
         return (
             <div id="pet-container">
-                {console.log("cheese", this.props.userData)}
-                <Link className="create-pet-link" to="/create" exact>CREATE-A-PET</Link>
+                {/* <Link className="create-pet-link" to="/create" exact>CREATE-A-PET</Link> */}
                 {this.props.userData ? this.displayInfo() : ""}
             </div>
         )

@@ -81,13 +81,52 @@
 
 
 .pet-img, .item-img {
-  height: 100px;
-  width: 100px;
+  height: 80px;
+  width: 80px;
 }
 
-.pet-div, .item-div{
-  /* width: 200px; */
+.item-div {
+  font-size: 12px;
+  float: left;
+  width: 100px;
+  height: 200px;
   margin: 5px;
   padding: 10px;
   border: 5px solid green;
+}
+
+.pet-div{
+  font-size: 12px;
+  float: left;
+  width: 200px;
+  height: 200px;
+  margin: 5px;
+  padding: 10px;
+  border: 5px solid green;
+}
+
+.pet-div:hover, .item-div:hover{
+  border: 5px solid red;
+}
+
+#care-container {
+  width: 100%;
+  height: 300px;
+}
+
+.care-btn, .clear-btn {
+  color: pink;
+  width: 100%;
+  height: 10%;
+  background-color: lavenderblush;
+}
+
+.care-btn:hover, .clear-btn:hover {
+  width: 100%;
+  height: 10%;
+  background-color: lavender;
+}
+
+p {
+  margin: 0px;
 }

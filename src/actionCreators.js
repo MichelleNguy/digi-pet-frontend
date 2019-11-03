@@ -13,10 +13,23 @@ const setUserData = (userData) => {
     }
 }
 
+const addToCare = (objectToAdd) => {
+    return {
+        type: "ADD_TO_CARE",
+        objectToAdd: objectToAdd
+    }
+}
+
+const clearCare = () => {
+    return {
+        type: "CLEAR_CARE",
+    }
+}
+
 const logout = () => {
     return {
         type: "LOGOUT"
     }
 }
 
-export { setToken, setUserData, logout }
+export { setToken, setUserData, logout, addToCare, clearCare }

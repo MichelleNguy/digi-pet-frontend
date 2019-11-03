@@ -56,7 +56,7 @@ class Login extends Component {
                 localStorage.userId = data.user_id
                 this.props.setToken(data.token, data.user_id)
                 this.stupidFunction()
-                this.props.history.push("/pets")
+                this.props.history.push("/kennel")
             })
     }
 

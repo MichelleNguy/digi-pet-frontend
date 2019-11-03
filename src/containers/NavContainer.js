@@ -6,7 +6,6 @@ import { logout } from '../actionCreators'
 class NavContainer extends Component {
     
     render() {
-        console.log("tokes", this.props.token)
         return (
             <div id="nav-container">
                 <NavLink className="nav-link" to="/" exact>DiGi - PETS</NavLink>
@@ -22,8 +21,9 @@ class NavContainer extends Component {
     loggedInLinks = () => {
         return (
             <React.Fragment>
-                <NavLink className="nav-link" to="/inventory" exact>INVENTORY</NavLink>
-                <NavLink className="nav-link" to="/pets" exact>PETS</NavLink>
+                {/* <NavLink className="nav-link" to="/inventory" exact>INVENTORY</NavLink>
+                <NavLink className="nav-link" to="/pets" exact>PETS</NavLink> */}
+                <NavLink className="nav-link" to="/kennel" exact>KENNEL</NavLink>
                 <NavLink className="nav-link" to="/shops" exact>SHOPS</NavLink>
                 <NavLink onClick={this.logout} className="login-nav-link" to="/goodbye" exact>LOGOUT</NavLink>
             </React.Fragment>

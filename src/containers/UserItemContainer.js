@@ -10,7 +10,7 @@ class UserItemContainer extends Component {
         return (
             <React.Fragment>
                 {this.props.userData.items.map(item => {
-                    return <Item key={uuid.v4()} item={item} />
+                    return <Item key={uuid.v4()} item={item} showPrice={false}/>
                 })}
             </React.Fragment>
         )
