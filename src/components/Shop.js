@@ -20,7 +20,7 @@ export default class Shop extends Component {
         // let {name} = this.props.shop
         console.log("inside shop", this.props.shop)
         return (
-            <div>
+            <div className="single-shop">
                 { this.props.shop ? this.renderItems() : ""}
             </div>
         )
