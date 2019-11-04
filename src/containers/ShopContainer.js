@@ -20,7 +20,7 @@ class ShopContainer extends Component {
     render() {
         console.log("shops:", this.props.shops)
         return (
-            <div>
+            <div id="shop-container">
                 Click on a shop to go shopppppping!
                 { this.props.shops ? this.renderShops() : ""}
             </div>

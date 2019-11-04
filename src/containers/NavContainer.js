@@ -8,7 +8,7 @@ class NavContainer extends Component {
     render() {
         return (
             <div id="nav-container">
-                <NavLink className="nav-link" to="/" exact>DiGi - PETS</NavLink>
+                <NavLink className="nav-link" to="/" exact>DiGi-PETS</NavLink>
                 { this.props.token ? this.loggedInLinks() : this.loggedOutLinks()}
             </div>
         )
@@ -22,6 +22,7 @@ class NavContainer extends Component {
         return (
             <React.Fragment>
                 <NavLink className="nav-link" to="/kennel" exact>KENNEL</NavLink>
+                <NavLink className="nav-link" to="/create" exact>CREATE PET</NavLink>
                 <NavLink className="nav-link" to="/shops" exact>SHOPS</NavLink>
                 <NavLink onClick={this.logout} className="login-nav-link" to="/goodbye" exact>LOGOUT</NavLink>
             </React.Fragment>

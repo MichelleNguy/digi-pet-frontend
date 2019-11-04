@@ -12,6 +12,7 @@ class Pet extends Component {
             console.log("you're already in here")
             return
         }
+        console.log("hm")
         this.props.addToCare(this.props.pet)
     }
 

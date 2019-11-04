@@ -15,7 +15,8 @@ class CareContainer extends Component {
         return (
             <React.Fragment>
                 {this.props.careThings.map(thing => {
-                    return thing.hygiene ? <Pet key={uuid.v4()} pet={thing} animate={true} /> : <Item key={uuid.v4()} item={thing}/>
+                    console.log(thing)
+                    return thing.effect ? <Item key={uuid.v4()} item={thing} /> : <Pet key={uuid.v4()} pet={thing} animate={true} />
                 })}
                 <button className="care-btn" onClick={this.handleCare}>PRESS HERE TO CARE FOR PET!</button>
             </React.Fragment>
@@ -55,6 +56,7 @@ class CareContainer extends Component {
     }
 
     handleCare = () => {
+        if (this.props.careThings.length < 2) {return}
         let item = this.props.careThings.find( thing => thing.price)
         let pet = this.props.careThings.find(thing => thing.hygiene)
         this.useEffect(item.effect, pet)
