@@ -68,12 +68,9 @@ class CareContainer extends Component {
             fetch(`http://localhost:3000/user_items/${itemToDelete.id}`, {
                 method: "DELETE"
             })
-                // .then( () => {
-                //     this.useEffect(item.effect, pet)
-                //     this.stupidFunction()
-                //     this.handleClear()
-                // })
         }
+        item.consumable ? alert(`You fed ${pet.name} a(n) ${item.name}. It has been removed from your inventory.`) : alert(`You used ${item.name} on ${pet.name}. It has been returned to your inventory.`)
+
     }
 
     handleClear = () => {
