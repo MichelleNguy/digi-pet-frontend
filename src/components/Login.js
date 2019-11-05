@@ -107,10 +107,10 @@ class Login extends Component {
 
     render() {
         return (
-            <div>
+            <div id="login-div">
                 <h1>{this.state.errors.empty ? "" : this.printErrors()}</h1>
-                <button onClick={this.changeOption}>{ this.buttonDisplay() }</button>
-                <form onSubmit={this.handleSubmit}>
+                <button id="login-signup-btn"onClick={this.changeOption}>{ this.buttonDisplay() }</button>
+                <form id="login-form" onSubmit={this.handleSubmit}>
                     <input 
                         type="text"
                         name="username"
@@ -127,7 +127,7 @@ class Login extends Component {
                         onChange={this.handleChange}
                     >
                     </input>
-                    <input type="submit"></input>
+                    <input id="login-submit"type="submit"></input>
                 </form>
             </div>
         )

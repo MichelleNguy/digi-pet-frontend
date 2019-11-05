@@ -214,3 +214,51 @@ p {
   padding: 1vh;
   overflow: scroll;
 }
+
+#login-div {
+  width: 40vw;
+  height: 30vh;
+  margin: auto;
+}
+
+#login-form input{
+  font-size: 2em;
+  width: 39vw;
+  text-align: center;
+  border: 5px solid lightskyblue;
+  margin: .5vh 0vh;
+}
+
+#login-form input:focus {
+  outline: none;
+  border-bottom: 7px solid salmon;
+}
+
+#login-submit{
+  border: none;
+  font-size: 2em;
+  color: white;
+  text-align: center;
+  background-color: lightskyblue;
+  width: 40vw;
+}
+
+#login-submit:hover{
+  opacity: .5;
+}
+
+#login-signup-btn{
+  border: none;
+  font-size: 2em;
+  color: lightskyblue;
+  text-align: center;
+  border-bottom: 5px solid salmon;
+  /* background-color: lightskyblue; */
+  width: 40vw;
+}
+
+#login-signup-btn:hover{
+  opacity: .5;
+}
+
+
