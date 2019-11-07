@@ -252,8 +252,7 @@ p {
   font-size: 2em;
   color: lightskyblue;
   text-align: center;
-  border-bottom: 5px solid salmon;
-  /* background-color: lightskyblue; */
+  background-color: lightskyblue;
   width: 40vw;
 }
 
