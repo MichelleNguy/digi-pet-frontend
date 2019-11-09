@@ -9,7 +9,6 @@ class Item extends Component {
         let returnedStr = ""
         let parsedEffect = JSON.parse(effect)
         for (let [key, value] of Object.entries(parsedEffect)) {
-            //pet[`${key}`] += value
             returnedStr += `${key}: ${value}\r\n`
         }
         return returnedStr
@@ -48,7 +47,6 @@ class Item extends Component {
         body: JSON.stringify({
                 user_id: this.props.userData.id,
                 item_id: this.props.item.id,
-                // price: this.props.item.price
             })
         })
             .then(res => res.json())
