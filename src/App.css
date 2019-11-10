@@ -79,7 +79,8 @@ html {
 #user-container {
   padding: 1.5vh;
   text-align: left;
-  height: 4vh;
+  height: 2vh;
+  font-size: 1.1em;
   /* border: 1px solid black; */
   color: white;
   background-color: lightskyblue;
@@ -88,20 +89,15 @@ html {
 #pet-container, #user-item-container{
   background-color: white;
   float: left;
-  height: 32vh;
+  height: 36vh;
   width: 37vw;
   margin: .5vh .3vw;
   overflow: scroll;
-  /* border: 5px solid lightskyblue; */
 }
 
-/* #user-item-container{
-  float: right;
-} */
-
 .pet-img, .item-img {
-  height: 80px;
-  width: 80px;
+  height: 60px;
+  width: 60px;
 }
 
 .monster-img {
@@ -167,18 +163,18 @@ html {
   color: darkgrey;
   width: 78vw;
   margin: .4, auto;
-  height: 46vh;
-  padding: 2vh;
+  height: 43vh;
+  padding: 1vh;
   /* border: 5px solid lightskyblue; */
   border-bottom: 5px solid lightskyblue;
 }
 
 .care-btn, .clear-btn {
   color: white;
-  font-size: 1.5em;
-  margin: .5vh, auto;
+  font-size: 1em;
+  margin: .2vh, auto;
   width: 78vw;
-  height: 5vh;
+  height: 3vh;
   background-color: lightskyblue;
   outline: 0;
   border-style: none;
@@ -250,7 +246,7 @@ p {
 #login-signup-btn{
   border: none;
   font-size: 2em;
-  color: lightskyblue;
+  color: white;
   text-align: center;
   background-color: lightskyblue;
   width: 40vw;
