@@ -76,12 +76,20 @@ html {
   
 }
 
+#home-container {
+  text-align: left;
+  padding: 3vh;
+}
+
+#home-container p {
+  margin: 3vh;
+}
+
 #user-container {
   padding: 1.5vh;
   text-align: left;
   height: 2vh;
   font-size: 1.1em;
-  /* border: 1px solid black; */
   color: white;
   background-color: lightskyblue;
 }
@@ -165,7 +173,6 @@ html {
   margin: .4, auto;
   height: 43vh;
   padding: 1vh;
-  /* border: 5px solid lightskyblue; */
   border-bottom: 5px solid lightskyblue;
 }
 
