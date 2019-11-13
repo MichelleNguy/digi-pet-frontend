@@ -45,18 +45,12 @@ class MainContainer extends Component {
         return (
             <div id="main-container">
                 { this.props.token ? <UserContainer /> : ""}
-                {/* <h1>{ this.props.userData ? this.props.userData.username : "nothing"}</h1> */}
                 <Switch>
                     <Route path="/" exact component={Home} />
                     <Route path="/login" exact component={Login}/>
-                    {/* <Route path="/inventory" exact component={UserItemContainer} />
-                    <Route path="/pets" exact component={PetContainer} /> */}
-
                     <Route path="/create" exact component={CreatePet} />
-
                     <Route path="/shops" exact component={ShopContainer} />
                     <Route path="/goodbye" exact component={Goodbye} />
-
                     <Route path="/shops/:shopsId" exact render={this.shop} />
                     <Route path="/kennel" exact render={this.kennel} />
                 </Switch>
@@ -73,14 +67,10 @@ class MainContainer extends Component {
             })
             console.log("found", foundShop)
             return <Shop key={uuid.v4()} shop={foundShop} />
-            //return <Goodbye />
         } else {
             renderProps.history.push("/login")
             return <Login />
         }
-
-        
-        //return <Shop key={uuid.v4()} shop={this.props.shops.} />
     }
 
     // testing something..

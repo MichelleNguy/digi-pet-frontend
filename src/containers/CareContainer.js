@@ -27,7 +27,6 @@ class CareContainer extends Component {
     stupidFunction = () => {
         fetchUserData()
             .then(data => {
-                //this.props.setToken(localStorage.token, localStorage.userId)
                 this.props.setUserData(data)
             })
     }
@@ -36,7 +35,6 @@ class CareContainer extends Component {
         console.log("e", effect)
         console.log('pet', pet)
         let parsedEffect = JSON.parse(effect)
-        //console.log(parsedEffect)
         for (let [key, value] of Object.entries(parsedEffect)) {
             pet[`${key}`] += value
         }
