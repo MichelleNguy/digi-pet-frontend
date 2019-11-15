@@ -7,7 +7,7 @@ const HEADERS = {
 
 const fetchUserData = () => {
     let id = parseInt(localStorage.userId)
-    return fetch(`http://localhost:3000//users/${id}`, {
+    return fetch(`http://localhost:3000/users/${id}`, {
         headers: {
             'Content-Type': 'application/json',
             Authorization: localStorage.token

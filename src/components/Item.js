@@ -16,7 +16,6 @@ class Item extends Component {
 
 
     clickHandler = () => {
-        // see if a pet is in the container
         if (this.props.showPrice) { return }
         let itemExists = this.props.careThings.find(thing => { return thing.price })
         if (itemExists) {
