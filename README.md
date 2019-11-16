@@ -10,6 +10,9 @@ https://github.com/MichelleNguy/digi-pet-backend
 
 Neopets nostgolia.
 
+### Demo
+[![Demo video of digit-pets](https://img.youtube.com/vi/UNI6m8VSLF8/0.jpg)](https://www.youtube.com/watch?v=UNI6m8VSLF8 "Digi-pets demo")
+
 ### Screenshots
 
 ![screenshot of digi-pets web app, showcasing the kennel](./public/screenshots/screenshot_1.png?raw=true "Kennel")
@@ -18,6 +21,12 @@ Neopets nostgolia.
 
 ![screenshot of digi-pets web app, showcasing the create a pet tab](./public/screenshots/screenshot_3.png?raw=true "Create A Pet")
 
+### Installation
+1. Clone the repo and CD inside the directory
+2. ``npm install``
+3. ```npm start```
+
+Make sure to visit the repo for the backend and follow those instructions!
 
 ### Tech/Frameworks
 
