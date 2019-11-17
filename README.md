@@ -12,7 +12,7 @@ Neopets nostgolia.
 
 ### Demo
 
-![Alt Text](./public/demo-gif.gif)
+![gif of digi-pets game demo](./public/demo-gif.gif)
 
 
 #### Video below:
