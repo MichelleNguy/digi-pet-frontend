@@ -15,7 +15,8 @@ Neopets nostgolia.
 ![Alt Text](./public/demo-gif.gif)
 
 
-Extended Demo:
+#### Video below:
+
 [![Demo video of digit-pets](https://img.youtube.com/vi/UNI6m8VSLF8/0.jpg)](https://www.youtube.com/watch?v=UNI6m8VSLF8 "Digi-pets demo")
 
 ### Screenshots
