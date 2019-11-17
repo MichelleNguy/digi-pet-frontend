@@ -11,6 +11,11 @@ https://github.com/MichelleNguy/digi-pet-backend
 Neopets nostgolia.
 
 ### Demo
+
+![Alt Text](./public/demo-gif.gif)
+
+
+Extended Demo:
 [![Demo video of digit-pets](https://img.youtube.com/vi/UNI6m8VSLF8/0.jpg)](https://www.youtube.com/watch?v=UNI6m8VSLF8 "Digi-pets demo")
 
 ### Screenshots
