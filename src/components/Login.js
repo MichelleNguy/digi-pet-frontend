@@ -31,9 +31,7 @@ class Login extends Component {
                 ...loginData
             }
         }
-        let fetchData
-        this.state.login ? fetchData = [loginData, "login"] : fetchData = [createData, "users"]
-        
+        let fetchData = this.state.login ? [loginData, "login"] : [createData, "users"]
         fetch(`http://localhost:3000/${fetchData[1]}`, {
             method: 'POST',
             headers: {
