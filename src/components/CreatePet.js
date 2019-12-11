@@ -26,7 +26,7 @@ class CreatePet extends Component {
         return (
             <React.Fragment>
                 { monsters.map( monster => {
-                    let nameOfClass = this.state.img_url == monster ? "selected-monster" : "monster-img"
+                    let nameOfClass = this.state.img_url === monster ? "selected-monster" : "monster-img"
                     return <img className={nameOfClass} onClick={ () => this.selectMonster(monster)}src={monster} alt="icon of an adorable monster."/>
                 })}
             </React.Fragment>
@@ -41,7 +41,7 @@ class CreatePet extends Component {
 
     handleSubmit = (evt) => {
         evt.preventDefault()
-        if (this.state.name == "") {
+        if (this.state.name === "") {
             this.setState({errors: ["NAME CANNOT BE BLANK FOR PET!"]})
         }
         fetch(`http://localhost:3000/pets`, {

@@ -17,7 +17,6 @@ export default class Shop extends Component {
     }
 
     render() {
-        // let {name} = this.props.shop
         console.log("inside shop", this.props.shop)
         return (
             <div className="single-shop">
