@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import uuid from 'uuid'
 import { connect } from 'react-redux'
 import { setShops } from '../actionCreators'
 
@@ -18,7 +17,6 @@ class ShopContainer extends Component {
     }
 
     render() {
-        console.log("shops:", this.props.shops)
         return (
             <div id="shop-container">
                 Click on a shop to go shopppppping!

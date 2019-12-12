@@ -17,21 +17,23 @@ class Login extends Component {
     }
 
     handleSubmit = (e) => {
-        // Not the prettiest code, but it will do for now
-        // Will refactor
+        //prevent page from reloading
         e.preventDefault()
         
+        // if this.state.login is true, this is the body sent in the fetch
         let loginData = {
             username: this.state.username,
             password: this.state.password
         }
-        
+        // if we are creating a new user, this is the body sent in the fetch instead
         let createData = {
             user: {
                 ...loginData
             }
         }
+        // to determine whether or not api call is to login or to create
         let fetchData = this.state.login ? [loginData, "login"] : [createData, "users"]
+        
         fetch(`http://localhost:3000/${fetchData[1]}`, {
             method: 'POST',
             headers: {
@@ -42,7 +44,7 @@ class Login extends Component {
         })
             .then(res => res.json())
             .then(data => {
-                console.log("login data", data)
+                // if errors are returned, change state to reflect errors
                 if (data.errors) {
                     this.setState({
                         ...this.state,
@@ -52,7 +54,7 @@ class Login extends Component {
                 }
                 localStorage.token = data.token
                 localStorage.userId = data.user_id
-                this.props.setToken(data.token, data.user_id)
+                //this.props.setToken(data.token, data.user_id)
                 this.stupidFunction()
                 this.state.login ? this.props.history.push("/kennel") : this.props.history.push("/create")
             })
@@ -60,17 +62,6 @@ class Login extends Component {
 
 
     stupidFunction = () => {
-        // fetch(`http://localhost:3000//users/${parseInt(localStorage.userId)}`, {
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //         Authorization: localStorage.token
-        //     }
-        // })
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         this.props.setToken(localStorage.token, localStorage.userId)
-        //         this.props.setUserData(data)
-        //     })
         fetchUserData()
             .then(data => {
                 this.props.setToken(localStorage.token, localStorage.userId)
