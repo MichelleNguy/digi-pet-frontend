@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import uuid from 'uuid'
-import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { Jello } from 'react-motions';
 
 import Pet from '../components/Pet'
 
@@ -24,7 +22,6 @@ class PetContainer extends Component {
     render() {
         return (
             <div id="pet-container">
-                {/* <Link className="create-pet-link" to="/create" exact>CREATE-A-PET</Link> */}
                 {this.props.userData ? this.displayInfo() : ""}
             </div>
         )

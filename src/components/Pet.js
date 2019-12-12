@@ -9,10 +9,9 @@ class Pet extends Component {
         // see if a pet is in the container
         let petExists = this.props.careThings.find( thing => { return thing.hygiene })
         if (petExists ) {
-            console.log("you're already in here")
+            // if a pet is in the care container already, return
             return
         }
-        console.log("hm")
         this.props.addToCare(this.props.pet)
     }
 
@@ -30,7 +29,6 @@ class Pet extends Component {
             <div onClick={this.clickHandler} className="pet-div">
                 <h1>{name}</h1>
                 { this.renderImage(img_url)}
-                {/* <img className="pet-img" src={img_url} alt="an image of a cute monster"/> */}
                 <p> HYGIENE: {hygiene}/100 </p>
                 <p> HUNGER: {hunger}/100 </p>
                 <p> ATTENTION:  {attention}/100 </p>

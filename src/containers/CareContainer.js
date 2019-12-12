@@ -32,8 +32,6 @@ class CareContainer extends Component {
     }
 
     useEffect = (effect, pet) => {
-        console.log("e", effect)
-        console.log('pet', pet)
         let parsedEffect = JSON.parse(effect)
         for (let [key, value] of Object.entries(parsedEffect)) {
             pet[`${key}`] += value
