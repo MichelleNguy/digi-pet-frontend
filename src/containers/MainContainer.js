@@ -59,11 +59,13 @@ class MainContainer extends Component {
     }
 
     shop = (renderProps) => {
+        console.log("shopId", renderProps)
         let id = renderProps.match.params.shopsId
         if (localStorage.token) {
             let foundShop = this.props.shops.find( shop => {
                 return shop.id == id
             })
+            console.log("found", foundShop)
             return <Shop key={uuid.v4()} shop={foundShop} />
         } else {
             renderProps.history.push("/login")
@@ -71,6 +73,7 @@ class MainContainer extends Component {
         }
     }
 
+    // testing something..
     kennel = () => {
         
         return (
@@ -81,6 +84,8 @@ class MainContainer extends Component {
         </React.Fragment>
         )
     }
+
+    //
 
 }
 
